@@ -37,7 +37,7 @@ export const Layout = () => {
                     </div>
                     <nav>
                         <ul className={styles.headerNavList}>
-                            <li>
+                            <li className="mb-2 ">
                                 <i>
                                 Information Assistant uses AI. Check for mistakes.
                                 </i>

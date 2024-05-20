@@ -26,6 +26,7 @@ import { ChatModeButtonGroup } from "../../components/ChatModeButtonGroup";
 import { InfoContent } from "../../components/InfoContent/InfoContent";
 import { FolderPicker } from "../../components/FolderPicker";
 import { TagPickerInline } from "../../components/TagPicker";
+import chatIcon from "../../assets/chaticon.svg";
 import React from "react";
 
 const Chat = () => {
@@ -351,34 +352,29 @@ const Chat = () => {
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
                             {activeChatMode == ChatMode.WorkOnly ? 
-                                <div>
-                                    <div className={styles.chatEmptyStateHeader}> 
-                                        <BuildingMultipleFilled fontSize={"100px"} primaryFill={"rgba(27, 74, 239, 1)"} aria-hidden="true" aria-label="Chat with your Work Data logo" />
-                                        </div>
-                                    <h1 className={styles.chatEmptyStateTitle}>Chat with your work data</h1>
+                                <div className={styles.aichattitle}>
+                                    <div className={styles.chaticonwrapper}><img src={chatIcon} alt="Azure OpenAI" className={styles.headerLogo} /></div>
+                                     <h1 className={styles.chatEmptyStateTitle}>Chat with <br></br>Your <br></br><b>Trust</b><br></br> data</h1>
                                 </div>
                             : activeChatMode == ChatMode.WorkPlusWeb ?
                                 <div>
-                                    <div className={styles.chatEmptyStateHeader}> 
-                                        <BuildingMultipleFilled fontSize={"80px"} primaryFill={"rgba(27, 74, 239, 1)"} aria-hidden="true" aria-label="Chat with your Work and Web Data logo" /><AddFilled fontSize={"50px"} primaryFill={"rgba(0, 0, 0, 0.7)"} aria-hidden="true" aria-label=""/><GlobeFilled fontSize={"80px"} primaryFill={"rgba(24, 141, 69, 1)"} aria-hidden="true" aria-label="" />
-                                    </div>
-                                    <h1 className={styles.chatEmptyStateTitle}>Chat with your work and web data</h1>
+                                    {/* <h1 className={styles.chatEmptyStateTitle}></h1> */}
                                 </div>
                             : //else Ungrounded
                                 <div>
-                                    <div className={styles.chatEmptyStateHeader}> 
+                                    {/* <div className={styles.chatEmptyStateHeader}> 
                                         <ChatSparkleFilled fontSize={"80px"} primaryFill={"rgba(0, 0, 0, 0.35)"} aria-hidden="true" aria-label="Chat logo" />
-                                    </div>
-                                    <h1 className={styles.chatEmptyStateTitle}>Chat directly with a LLM</h1>
+                                    </div> */}
+                                     {/* <h1 className={styles.chatEmptyStateTitle}>Chat directly with a LLM</h1> */}
                                 </div>
                             }
-                            <span className={styles.chatEmptyObjectives}>
+                            {/* <span className={styles.chatEmptyObjectives}>
                                 <i>Information Assistant uses AI. Check for mistakes.   </i><a href="https://github.com/microsoft/PubSec-Info-Assistant/blob/main/docs/transparency.md" target="_blank" rel="noopener noreferrer">Transparency Note</a>
-                            </span>
+                            </span> */}
                             {activeChatMode != ChatMode.Ungrounded &&
                                 <div>
-                                    <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
-                                    <ExampleList onExampleClicked={onExampleClicked} />
+                                    {/* <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2> */}
+                                    {/* <ExampleList onExampleClicked={onExampleClicked} /> */}
                                 </div>
                             }
                         </div>
