@@ -265,3 +265,12 @@ sup {
     align-items: center;
     flex-direction: column;
 }
+.adjustInputContainer{display: flex; flex-direction: row; justify-content: center;}
+.adjustInput { padding: 6px; cursor: pointer; }
+.adjustInputText { font-size: 12px; font-weight: 400; color: rgb(133, 133, 133); line-height: 22px; padding-top: 8px; padding-bottom: 8px; padding-left: 8px; padding-right: 8px; white-space: pre-line; }
+
+@media(max-width:800px){
+
+.answerContainerWork{flex: 0 0 100%;}
+
+}

@@ -3,10 +3,8 @@
 
 import { useMemo } from "react";
 import { Stack, IconButton } from "@fluentui/react";
-import { ShieldCheckmark20Regular } from '@fluentui/react-icons';
-
+import { Options16Filled, ArrowSync16Filled, Briefcase16Filled, Globe16Filled, BuildingMultipleFilled,ShieldCheckmark20Regular  } from "@fluentui/react-icons";
 import styles from "./Answer.module.css";
-
 import { Approaches, ChatResponse, getCitationFilePath, ChatMode } from "../../api";
 import { parseAnswerToHtml } from "./AnswerParser";
 import { AnswerIcon } from "./AnswerIcon";
@@ -17,6 +15,7 @@ import rehypeSanitize from "rehype-sanitize";
 import rehypeRaw from "rehype-raw";
 
 interface Props {
+    approach?: Approaches;
     answer: ChatResponse;
     isSelected?: boolean;
     onCitationClicked: (filePath: string, sourcePath: string, pageNumber: string) => void;
@@ -224,6 +223,40 @@ export const Answer = ({
             )}
             <Stack.Item>
                 <div className={styles.raiwarning}>AI-generated content may be incorrect</div>
+                <div className={styles.adjustInputContainer}>
+            <div className={styles.adjustInput} onClick={onAdjustClick}>
+                <Options16Filled primaryFill="rgba(133, 133, 133, 1)" />
+                <span className={styles.adjustInputText}>Adjust</span>
+            </div>
+            <div className={styles.adjustInput} onClick={onRegenerateClick}>
+                <ArrowSync16Filled primaryFill="rgba(133, 133, 133, 1)" />
+                <span className={styles.adjustInputText}>Regenerate</span>
+            </div>
+            {(parsedAnswer.approach == Approaches.ChatWebRetrieveRead && chatMode == ChatMode.WorkPlusWeb) &&
+                    <div className={styles.adjustInputContainer}>
+                        <div className={styles.adjustInput} onClick={onRagSearchClicked}>
+                            <BuildingMultipleFilled primaryFill="rgba(133, 133, 133, 1)" />
+                            <span className={styles.adjustInputText}>Search Work</span>
+                        </div>
+                        <div className={styles.adjustInput} onClick={onRagCompareClicked}>
+                            <BuildingMultipleFilled primaryFill="rgba(133, 133, 133, 1)" />
+                            <span className={styles.adjustInputText}>Compare with Work</span>
+                        </div>
+                    </div>
+            }
+            {(parsedAnswer.approach == Approaches.ReadRetrieveRead && chatMode == ChatMode.WorkPlusWeb) &&
+                    <>
+                        <div className={styles.adjustInput} >
+                            <Globe16Filled primaryFill="rgba(133, 133, 133, 1)" />
+                            <span className={styles.adjustInputText}>Search Web</span>
+                        </div>
+                        <div className={styles.adjustInput}>
+                            <Globe16Filled primaryFill="rgba(133, 133, 133, 1)" />
+                            <span className={styles.adjustInputText}>Compare with Web</span>
+                        </div>
+                    </>
+            }
+        </div>
             </Stack.Item>
             {answer.answer && <Stack.Item align="center">
                 <RAIPanel approach={answer.approach} chatMode={chatMode} onAdjustClick={onAdjustClick} onRegenerateClick={onRegenerateClick} onWebSearchClicked={onWebSearchClicked} onWebCompareClicked={onWebCompareClicked} onRagCompareClicked={onRagCompareClicked} onRagSearchClicked={onRagSearchClicked} />

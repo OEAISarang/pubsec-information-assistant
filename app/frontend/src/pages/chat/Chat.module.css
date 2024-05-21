@@ -13,6 +13,7 @@
     flex-direction: row;
     margin-bottom: 10px;
     justify-content: space-between;
+    border-bottom: 1px solid #f3f3f3;
 }
 
 .chatRoot {
@@ -105,8 +106,8 @@
     color: #000000;
 }
 .chaticonwrapper{
-    margin-left: 20rem;
-     margin-bottom: 1.2rem; 
+    margin-left: 14rem;
+    margin-bottom: 0.75rem;
 }
 @media only screen and (max-height: 780px) {
     .chatEmptyState {
@@ -154,7 +155,7 @@
     padding-right: 24px;
     width: 100%;
     max-width: 1028px;
-    background: #f2f2f2;
+    background: #fff;
 }
 
 .chatAnalysisPanel {
@@ -222,9 +223,11 @@
     bottom: 23px;
     right: 40px;
 }
-
+.chatMessageGpt{min-width: 100%; max-width: 100%;}
 @media (max-width: 800px) {
     .chatInputWarningMessage {
         bottom: 8px;
     }
+    .chatMessageGptMinWidth{min-width: 100%; max-width: 100%;}
+    
 }

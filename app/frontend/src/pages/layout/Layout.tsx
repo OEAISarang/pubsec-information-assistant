@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 
 import { Outlet, NavLink, Link } from "react-router-dom";
-import openai from "../../assets/ai-logo.png";
+import openai from "../../assets/openai.svg";
 import { WarningBanner } from "../../components/WarningBanner/WarningBanner";
 import styles from "./Layout.module.css";
 import { Title } from "../../components/Title/Title";
@@ -33,11 +33,11 @@ export const Layout = () => {
                 <div className={styles.headerContainer}>
                     <div className={styles.headerTitleContainer}>
                         <img src={openai} alt="Azure OpenAI" className={styles.headerLogo} />
-                        <h3 className={styles.headerTitle}><Title /></h3>
+                        <h3 className={styles.headerTitle}>AI Assistant</h3>
                     </div>
                     <nav>
                         <ul className={styles.headerNavList}>
-                            <li className="mb-2 ">
+                            <li>
                                 <i>
                                 Information Assistant uses AI. Check for mistakes.
                                 </i>
@@ -50,7 +50,7 @@ export const Layout = () => {
                                     Transparency Note
                                 </NavLink>
                             </li>
-                            {featureFlags?.ENABLE_MATH_ASSISTANT &&
+                            {/* {featureFlags?.ENABLE_MATH_ASSISTANT &&
                                 <li className={styles.headerNavLeftMargin}>
                                     <NavLink to="/tutor" className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}>
                                     Math Assistant
@@ -58,8 +58,8 @@ export const Layout = () => {
                                     <p className={styles.centered}>(preview)</p>
                                     </NavLink>
                                 </li>
-                            }
-                            {featureFlags?.ENABLE_TABULAR_DATA_ASSISTANT &&
+                            } */}
+                            {/* {featureFlags?.ENABLE_TABULAR_DATA_ASSISTANT &&
                                 <li className={styles.headerNavLeftMargin}>
                                     <NavLink to="/tda" className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}>
                                     Tabular Data Assistant
@@ -69,7 +69,7 @@ export const Layout = () => {
                                     
                                       
                                 </li>
-                            }
+                            } */}
                     </ul>
                     </nav>
                 </div>

@@ -353,7 +353,7 @@ const Chat = () => {
                         <div className={styles.chatEmptyState}>
                             {activeChatMode == ChatMode.WorkOnly ? 
                                 <div className={styles.aichattitle}>
-                                    <div className={styles.chaticonwrapper}><img src={chatIcon} alt="Azure OpenAI" className={styles.headerLogo} /></div>
+                                    <div className={styles.chaticonwrapper}><img width="90" src={chatIcon} alt="Azure OpenAI" className={styles.headerLogo} /></div>
                                      <h1 className={styles.chatEmptyStateTitle}>Chat with <br></br>Your <br></br><b>Trust</b><br></br> data</h1>
                                 </div>
                             : activeChatMode == ChatMode.WorkPlusWeb ?
